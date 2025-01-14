@@ -38,13 +38,13 @@ void update(int l, int r, LL v, int s = 1, int e = n, int o = 1)
 {
 	if (s >= l && e <= r)
 	{
-		//  ��ǰ�ڵ���Ҫ�޸ĵ������ĳ���ӽڵ㣬����ֹͣ�� 
+		//  当前节点是要修改的区间的某个子节点，可以停止了 
 		t[o]  += (e - s + 1) * v;
-		lz[o] += v; // ��ʾ��ǰ�ڵ���ӽڵ㻹��vҪ�޸�
+		lz[o] += v; // 表示当前节点的子节点还有v要修改
 		return; 
 	}
 	int mid = s + e >> 1;
-	pushdown(s, e, o); // ��lz�·� 
+	pushdown(s, e, o); // 将lz下放 
 	if (mid >= l) update(l, r, v, s, mid, o << 1);
 	if (mid < r) update(l, r, v, mid + 1, e, o << 1 | 1);
 	pushup(o);
@@ -54,7 +54,7 @@ LL query(int l, int r, int s = 1, int e = n, int o = 1)
 {
 	if (s >= l && e <= r) return t[o];
 	int mid = s + e >> 1;
-	pushdown(s, e, o); // ��lz�·� 
+	pushdown(s, e, o); // 将lz下放 
 	LL res = 0;
 	if (mid >= l) res += query(l, r, s, mid, o << 1);
 	if (mid < r) res += query(l, r, mid + 1, e, o << 1 | 1);
