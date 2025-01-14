@@ -20,7 +20,6 @@ LL solve()
 	if (cnt1 == n) return 0;
 	if (s[0] == s[n - 1]) cnt3 = cnt1 * cnt2;
 	return ans - cnt1 - cnt2 - cnt3 + 2;
-	
 }
 int main()
 {
