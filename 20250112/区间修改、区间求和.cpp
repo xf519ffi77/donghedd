@@ -38,7 +38,7 @@ void update(int l, int r, LL v, int s = 1, int e = n, int o = 1)
 {
 	if (s >= l && e <= r)
 	{
-		//  当前节点是要修改的区间的某个子节点，可以停止了 
+		// 当前节点是要修改的区间的某个子节点，可以停止了 
 		t[o]  += (e - s + 1) * v;
 		lz[o] += v; // 表示当前节点的子节点还有v要修改
 		return; 
