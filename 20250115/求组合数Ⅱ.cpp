@@ -1,5 +1,5 @@
-
 // 1 <= b <= a <= 1e+5
+// 费马小定理，逆元
 
 #include <bits/stdc++.h>
 #define endl '\n'

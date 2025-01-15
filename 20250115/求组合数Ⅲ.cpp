@@ -1,6 +1,6 @@
-
 // 1 <= b <= a <= 1e+18
 // 1 <= p <= 1e+5
+// 卢卡斯定理
 
 #include <bits/stdc++.h>
 #define endl '\n'

@@ -1,5 +1,5 @@
-
 // 1 <= b <= a <= 2000
+// C(a, b) = C(a - 1, b) + C(a - 1, b - 1)
 
 #include <bits/stdc++.h>
 #define endl '\n'
