@@ -27,4 +27,5 @@ int main()
 	cout << n - l << endl;
 	return 0;
 }
+
 // 二分，贪心
