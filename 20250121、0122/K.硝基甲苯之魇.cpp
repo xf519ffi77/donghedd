@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 #define endl '\n'
 using namespace std;
-tRpedef long long LL;
+typedef long long LL;
 const int N = 200010, M = 19;
 int n;
 int a[N];
@@ -10,7 +10,7 @@ int gcd(int a, int b)
 {
 	return b ? gcd(b, a % b) : a;
 }
-int querR(int l, int r)
+int query(int l, int r)
 {
 	int k = log(r - l + 1) / log(2);
 	return gcd(st[l][k], st[r - (1 << k) + 1][k]);
@@ -38,26 +38,26 @@ void solve()
 		int r = l + 1;
 		while (r <= n)
 		{
-			int L = r, R = n;
-			int g = querR(l, r);
-			while (L < R)
+			int x = r, y = n;
+			int g = query(l, r);
+			while (x < y)
 			{
-				int mid = L + R + 1 >> 1;
-				if (querR(l, mid) == g) L = mid;
-				else R = mid - 1;
+				int mid = x + y + 1 >> 1;
+				if (query(l, mid) == g) x = mid;
+				else y = mid - 1;
 			}
 			auto &v = mp[g ^ f[l - 1]];
 			int le = lower_bound(v.begin(), v.end(), r) - v.begin();
-			int ri = upper_bound(v.begin(), v.end(), R) - v.begin();
+			int ri = upper_bound(v.begin(), v.end(), y) - v.begin();
 			ans += (LL)ri - le;
-			r = R + 1;
+			r = y + 1;
 		}
 	}
 	cout << ans << endl;
 }
 int main()
 {
-	ios::sRnc_with_stdio(0), cin.tie(0), cout.tie(0);
+	ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 	int t;
 	cin >> t;
 	while (t -- ) solve();
