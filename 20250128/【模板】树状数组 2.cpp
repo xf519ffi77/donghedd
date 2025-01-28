@@ -1,16 +1,16 @@
 #include <bits/stdc++.h>
 #define endl '\n'
 using namespace std;
-const int N =  100010;
+const int N = 5e5 + 10;
 int n, m;
 int a[N], t[N];
-int lowbit(int x) 
+int lowbit(int x)
 {
 	return x & -x;
 }
 void add(int x, int c)
 {
-	for (int i = x; i <= n; i += lowbit(i)) t[i] += c;
+	for (int i = x; i <= n; i += lowbit(i) ) t[i] += c;
 }
 int sum(int x)
 {
@@ -29,19 +29,19 @@ int main()
 	}
 	while (m -- )
 	{
-		char c;
-		cin >> c;
-		if (c == 'C')
+		int op;
+		cin >> op;
+		if (op == 1)
 		{
-			int l, r, d;
-			cin >> l >> r >> d;
-			add(l, d), add(r + 1, -d);
+			int x, y, c;
+			cin >> x >> y >> c;
+			add(x, c), add(y + 1, -c);
 		}
 		else
 		{
 			int x;
 			cin >> x;
-			cout << sum(x) << endl;
+			cout << sum(x) <<  endl;
 		}
 	}
 	return 0;

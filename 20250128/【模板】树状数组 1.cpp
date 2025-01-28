@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 #define endl '\n'
 using namespace std;
-const int N =  100010;
+const int N = 5e5 + 10;
 int n, m;
 int a[N], t[N];
-int lowbit(int x) 
+int lowbit(int x)
 {
 	return x & -x;
 }
@@ -25,26 +25,26 @@ int main()
 	for (int i = 1; i <= n; i ++ )
 	{
 		cin >> a[i];
-		add(i, a[i] - a[i - 1]);
+		add(i, a[i]);
 	}
 	while (m -- )
 	{
-		char c;
-		cin >> c;
-		if (c == 'C')
+		int op;
+		cin >> op;
+		if (op == 1)
 		{
-			int l, r, d;
-			cin >> l >> r >> d;
-			add(l, d), add(r + 1, -d);
+			int x, c;
+			cin >> x >> c;
+			add(x, c);
 		}
 		else
 		{
-			int x;
-			cin >> x;
-			cout << sum(x) << endl;
+			int x, y;
+			cin >> x >> y;
+			cout << sum(y) - sum(x - 1) << endl;
 		}
 	}
 	return 0;
 }
 
-// 修改区间，求单点值
+// 修改单点值，求区间和
