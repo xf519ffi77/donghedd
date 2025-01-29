@@ -1,6 +1,7 @@
 // 排序不等式
 若a1 <= a2 <= ...... <= an, b1 <= b2 <= ...... <= bn
 则a1 * bn + a2 * bn-1 + ...... + an * b1 <= ak1 * bk2 + ...... + ak2n-1 + bk2n <= a1 * b1 + a2 * b2  + ...... + an * bn
+	
 // 归并排序求逆序对
 #include <bits/stdc++.h>
 #define endl '\n'
