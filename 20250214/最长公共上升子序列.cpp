@@ -17,7 +17,7 @@ void solve()
 		{
 			f[i][j] = f[i - 1][j];
 			if (a[i] == b[j]) f[i][j] = max(f[i][j], Max);
-			if (a[i] > b[j]) f[i][j] = max(Max, f[i][j] + 1);
+			if (a[i] > b[j]) Max = max(Max, f[i][j] + 1);
 		}
 	}
 	int ans = 0;
